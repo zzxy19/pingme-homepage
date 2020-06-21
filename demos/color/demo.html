@@ -1,0 +1,46 @@
+<html>
+
+<head>
+	<script type="text/javascript" src="demo_handler.js"></script>
+</head>
+
+<body>
+	<h3>This is an experimental attempt to understand/improve the world seen by those who has color vision deficiency.</h3>
+	<div>
+		<form>
+		  <label for="img">Select image:</label>
+		  <div><input type="file" id="img" name="img" accept="image/*" onchange="displayImage(this)"></div>
+		</form>
+		<form>
+		  <label for="types">Choose a color-blind type:</label>
+		  <select name="types" id="types" onchange="updateTypeSelection(this)">
+		    <option value="Protanopia">Protanopia (red blind)</option>
+		    <option value="Protanomaly">Protanomaly (red weak)</option>
+		    <option value="Deuteranopia">Deuteranopia (green blind)</option>
+		    <option value="Deuteranomaly">Deuteranomaly (green weak)</option>
+		  </select>
+		</form>
+		<button onclick="renderImage()">Render adjusted image</button>
+	</div>
+
+	<br>
+
+	<div>
+		<div><h3>Original image and its color-blind view:</h3></div>
+		<img id="origImage" src="#" alt="Original image" width="300" height="200"/>
+		<canvas id="cbOrigCanvas" src="#" alt="Color-blind view of original image" width="300" height="200"/>
+	</div>
+
+	<div>
+		<canvas id="origCanvas" src="#" alt="Original image" width="300" height="200" style="display: none;"/>
+	</div>
+
+	<div>
+		<div><h3>Adjusted image and its color-blind view:</h3></div>
+		<canvas id="modifiedCanvas" src="#" alt="Modified image" width="300" height="200"></canvas>
+		<canvas id="cbModifiedCanvas" src="#" alt="Color-blind view of modified image" width="300" height="200"></canvas>
+	</div>
+</body>
+
+
+</html>

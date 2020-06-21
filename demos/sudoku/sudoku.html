@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<style type="text/css">
+.tr-border-bottom td{
+    border-bottom: 1px solid black;
+}
+.td-border-right {
+    border-right: 1px solid black;
+}
+</style>
+
+<script src="../../library/angular.min.js"></script>
+<script src="sudokuController.js"></script>
+<script>
+    angular.module('sudokuApp', [])
+        .controller('sudokuController', sudokuController);
+</script>
+
+</head>
+
+<body ng-app="sudokuApp">
+    <h3>Might I entertain you with a game of Sudoku?</h3>
+    <div ng-controller="sudokuController as sCtrl">
+        <div class="container-fluid" style="max-width:600px;">
+            <button ng-click="sCtrl.onVerifySolution()">Finish</button>
+            <label><i ng-show="sCtrl.incorrect">Sorry, this solution is incorrect!</i></label>
+            <label style="color:goldenrod;"><strong ng-show="sCtrl.correct">Congratulation! This solution is correct!</strong></label>
+            <table class="table" style="table-layout: fixed; width: 100%;">
+                <tbody>
+                    <tr ng-repeat="row in sCtrl.matrix.slice(0, 2)">
+                        <td ng-repeat="cell in row.slice(0, 2)" input-validation="number" model="cell.value" min="1" max="9">
+                            <b ng-if="cell.isDiabled">{{cell.value}}</b>
+                            <input ng-if="!cell.isDiabled" ng-model="cell.value" type="number" style="max-width:90%">
+                        </td>
+                        <td ng-repeat="cell in row.slice(2, 3)" input-validation="number" model="cell.value" min="1" max="9"
+                            class="td-border-right">
+                            <b ng-if="cell.isDiabled">{{cell.value}}</b>
+                            <input ng-if="!cell.isDiabled" ng-model="cell.value" type="number" style="max-width:90%">
+                        </td>
+                        <td ng-repeat="cell in row.slice(3, 5)" input-validation="number" model="cell.value" min="1" max="9">
+                            <b ng-if="cell.isDiabled">{{cell.value}}</b>
+                            <input ng-if="!cell.isDiabled" ng-model="cell.value" type="number" style="max-width:90%">
+                        </td>
+                        <td ng-repeat="cell in row.slice(5, 6)" input-validation="number" model="cell.value" min="1" max="9"
+                            class="td-border-right">
+                            <b ng-if="cell.isDiabled">{{cell.value}}</b>
+                            <input ng-if="!cell.isDiabled" ng-model="cell.value" type="number" style="max-width:90%">
+                        </td>
+                        <td ng-repeat="cell in row.slice(6)" input-validation="number" model="cell.value" min="1" max="9">
+                            <b ng-if="cell.isDiabled">{{cell.value}}</b>
+                            <input ng-if="!cell.isDiabled" ng-model="cell.value" type="number" style="max-width:90%">
+                        </td>
+                    </tr>
+                    <tr ng-repeat="row in sCtrl.matrix.slice(2, 3)" class="tr-border-bottom">
+                        <td ng-repeat="cell in row.slice(0, 2)" input-validation="number" model="cell.value" min="1" max="9">
+                            <b ng-if="cell.isDiabled">{{cell.value}}</b>
+                            <input ng-if="!cell.isDiabled" ng-model="cell.value" type="number" style="max-width:90%">
+                        </td>
+                        <td ng-repeat="cell in row.slice(2, 3)" input-validation="number" model="cell.value" min="1" max="9"
+                            class="td-border-right">
+                            <b ng-if="cell.isDiabled">{{cell.value}}</b>
+                            <input ng-if="!cell.isDiabled" ng-model="cell.value" type="number" style="max-width:90%">
+                        </td>
+                        <td ng-repeat="cell in row.slice(3, 5)" input-validation="number" model="cell.value" min="1" max="9">
+                            <b ng-if="cell.isDiabled">{{cell.value}}</b>
+                            <input ng-if="!cell.isDiabled" ng-model="cell.value" type="number" style="max-width:90%">
+                        </td>
+                        <td ng-repeat="cell in row.slice(5, 6)" input-validation="number" model="cell.value" min="1" max="9"
+                            class="td-border-right">
+                            <b ng-if="cell.isDiabled">{{cell.value}}</b>
+                            <input ng-if="!cell.isDiabled" ng-model="cell.value" type="number" style="max-width:90%">
+                        </td>
+                        <td ng-repeat="cell in row.slice(6)" input-validation="number" model="cell.value" min="1" max="9">
+                            <b ng-if="cell.isDiabled">{{cell.value}}</b>
+                            <input ng-if="!cell.isDiabled" ng-model="cell.value" type="number" style="max-width:90%">
+                        </td>
+                    </tr>
+                    <tr ng-repeat="row in sCtrl.matrix.slice(3, 5)">
+                        <td ng-repeat="cell in row.slice(0, 2)" input-validation="number" model="cell.value" min="1" max="9">
+                            <b ng-if="cell.isDiabled">{{cell.value}}</b>
+                            <input ng-if="!cell.isDiabled" ng-model="cell.value" type="number" style="max-width:90%">
+                        </td>
+                        <td ng-repeat="cell in row.slice(2, 3)" input-validation="number" model="cell.value" min="1" max="9"
+                            class="td-border-right">
+                            <b ng-if="cell.isDiabled">{{cell.value}}</b>
+                            <input ng-if="!cell.isDiabled" ng-model="cell.value" type="number" style="max-width:90%">
+                        </td>
+                        <td ng-repeat="cell in row.slice(3, 5)" input-validation="number" model="cell.value" min="1" max="9">
+                            <b ng-if="cell.isDiabled">{{cell.value}}</b>
+                            <input ng-if="!cell.isDiabled" ng-model="cell.value" type="number" style="max-width:90%">
+                        </td>
+                        <td ng-repeat="cell in row.slice(5, 6)" input-validation="number" model="cell.value" min="1" max="9"
+                            class="td-border-right">
+                            <b ng-if="cell.isDiabled">{{cell.value}}</b>
+                            <input ng-if="!cell.isDiabled" ng-model="cell.value" type="number" style="max-width:90%">
+                        </td>
+                        <td ng-repeat="cell in row.slice(6)" input-validation="number" model="cell.value" min="1" max="9">
+                            <b ng-if="cell.isDiabled">{{cell.value}}</b>
+                            <input ng-if="!cell.isDiabled" ng-model="cell.value" type="number" style="max-width:90%">
+                        </td>
+                    </tr>
+                    <tr ng-repeat="row in sCtrl.matrix.slice(5, 6)" class="tr-border-bottom">
+                        <td ng-repeat="cell in row.slice(0, 2)" input-validation="number" model="cell.value" min="1" max="9">
+                            <b ng-if="cell.isDiabled">{{cell.value}}</b>
+                            <input ng-if="!cell.isDiabled" ng-model="cell.value" type="number" style="max-width:90%">
+                        </td>
+                        <td ng-repeat="cell in row.slice(2, 3)" input-validation="number" model="cell.value" min="1" max="9"
+                            class="td-border-right">
+                            <b ng-if="cell.isDiabled">{{cell.value}}</b>
+                            <input ng-if="!cell.isDiabled" ng-model="cell.value" type="number" style="max-width:90%">
+                        </td>
+                        <td ng-repeat="cell in row.slice(3, 5)" input-validation="number" model="cell.value" min="1" max="9">
+                            <b ng-if="cell.isDiabled">{{cell.value}}</b>
+                            <input ng-if="!cell.isDiabled" ng-model="cell.value" type="number" style="max-width:90%">
+                        </td>
+                        <td ng-repeat="cell in row.slice(5, 6)" input-validation="number" model="cell.value" min="1" max="9"
+                            class="td-border-right">
+                            <b ng-if="cell.isDiabled">{{cell.value}}</b>
+                            <input ng-if="!cell.isDiabled" ng-model="cell.value" type="number" style="max-width:90%">
+                        </td>
+                        <td ng-repeat="cell in row.slice(6)" input-validation="number" model="cell.value" min="1" max="9">
+                            <b ng-if="cell.isDiabled">{{cell.value}}</b>
+                            <input ng-if="!cell.isDiabled" ng-model="cell.value" type="number" style="max-width:90%">
+                        </td>
+                    </tr>
+                    <tr ng-repeat="row in sCtrl.matrix.slice(6)">
+                        <td ng-repeat="cell in row.slice(0, 2)" input-validation="number" model="cell.value" min="1" max="9">
+                            <b ng-if="cell.isDiabled">{{cell.value}}</b>
+                            <input ng-if="!cell.isDiabled" ng-model="cell.value" type="number" style="max-width:90%">
+                        </td>
+                        <td ng-repeat="cell in row.slice(2, 3)" input-validation="number" model="cell.value" min="1" max="9"
+                            class="td-border-right">
+                            <b ng-if="cell.isDiabled">{{cell.value}}</b>
+                            <input ng-if="!cell.isDiabled" ng-model="cell.value" type="number" style="max-width:90%">
+                        </td>
+                        <td ng-repeat="cell in row.slice(3, 5)" input-validation="number" model="cell.value" min="1" max="9">
+                            <b ng-if="cell.isDiabled">{{cell.value}}</b>
+                            <input ng-if="!cell.isDiabled" ng-model="cell.value" type="number" style="max-width:90%">
+                        </td>
+                        <td ng-repeat="cell in row.slice(5, 6)" input-validation="number" model="cell.value" min="1" max="9"
+                            class="td-border-right">
+                            <b ng-if="cell.isDiabled">{{cell.value}}</b>
+                            <input ng-if="!cell.isDiabled" ng-model="cell.value" type="number" style="max-width:90%">
+                        </td>
+                        <td ng-repeat="cell in row.slice(6)" input-validation="number" model="cell.value" min="1" max="9">
+                            <b ng-if="cell.isDiabled">{{cell.value}}</b>
+                            <input ng-if="!cell.isDiabled" ng-model="cell.value" type="number" style="max-width:90%">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
