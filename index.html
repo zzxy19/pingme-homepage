@@ -18,6 +18,22 @@
 
 <html>
 
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="component/snackbar.css">
+
+<script src="component/snackbar.js"></script>
+<script>
+function copyEmail() {
+    navigator.clipboard.writeText("zxie19@gmail.com");
+    showSnackbar();
+}
+</script>
+
+</head>
+
+<body>
 <div>
     <h1>Zihan Xie's Home Page</h1>
 </div>
@@ -36,6 +52,12 @@
   </ul>
 </nav>
 
-<p>I want to host various interesting things/demos on this page.
+<p>I'm a software engineer. I want to host various interesting things/demos on this page.
 
+<p>If your name is also Zi Han, I would very much want to invite you to build this page together. 
+    Please shoot me an <button onclick="copyEmail()" role="button">email</button>!
+
+<div id="snackbar">Email copied to clipboard!</div>
+
+</body>
 </html>
