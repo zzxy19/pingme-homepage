@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="quiz_handler.js"></script>
+</head>
+
+<body>
+    <h3>Which type of color blind are you?</h3>
+
+    <div>
+        <img id="img1" src="00000010.jpg" alt="Quiz image 1" width="300" height="200"/>
+        Can you see the number 27 in this image?
+        <select id="quiz1">
+            <option value="y">Yes</option>
+            <option value="n">No</option>
+        </select>
+    </div>
+
+    <div>
+        <img id="img2" src="10000010.jpg" alt="Quiz image 2" width="300" height="200"/>
+        Can you see the number 5 in this image?
+        <select id="quiz2">
+            <option value="y">Yes</option>
+            <option value="n">No</option>
+        </select>
+    </div>
+
+    <div>
+        <img id="img3" src="10500010.jpg" alt="Quiz image 3" width="300" height="200"/>
+        Can you see the number 97 in this image?
+        <select id="quiz3">
+            <option value="y">Yes</option>
+            <option value="n">No</option>
+        </select>
+    </div>
+
+    <div>
+        <img id="img4" src="10501010.jpg" alt="Quiz image 4" width="300" height="200"/>
+        Can you see the number 7 in this image?
+        <select id="quiz4">
+            <option value="y">Yes</option>
+            <option value="n">No</option>
+        </select>
+    </div>
+
+    <div>
+        <img id="img5" src="10101010.jpg" alt="Quiz image 5" width="300" height="200"/>
+        Can you see the number 45 in this image?
+        <select id="quiz5">
+            <option value="y">Yes</option>
+            <option value="n">No</option>
+        </select>
+    </div>
+
+    <br>
+    <br>
+
+    <div>
+        <button onclick="deduceType()">What color blind am I?</button>
+        <p>You are: <span id="answer"></span></p>
+        <a href="demo.html">Continue to demo</a>
+    </div>
+    
+</body>
+
+
+</html>

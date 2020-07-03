@@ -15,9 +15,14 @@
 		  <label for="types">Choose a color-blind type:</label>
 		  <select name="types" id="types" onchange="updateTypeSelection(this)">
 		    <option value="Protanopia">Protanopia (red blind)</option>
+		    <option value="Custom">Custom value (try it!)</option>
 		    <option value="Protanomaly">Protanomaly (red weak)</option>
 		    <option value="Deuteranopia">Deuteranopia (green blind)</option>
 		    <option value="Deuteranomaly">Deuteranomaly (green weak)</option>
+		    <option value="Tritanopia">Tritanopia (blue blind)</option>
+		    <option value="Tritanomaly">Tritanomaly (blue weak)</option>
+		    <option value="Achromatopsia">Achromatopsia (monochromacy)</option>
+		    <option value="Achromatomaly">Achromatomaly (blue cone monochromacy)</option>
 		  </select>
 		</form>
 		<button onclick="renderImage()">Render adjusted image</button>

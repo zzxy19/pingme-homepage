@@ -26,7 +26,12 @@
 <script src="component/snackbar.js"></script>
 <script>
 function copyEmail() {
-    navigator.clipboard.writeText("zxie19@gmail.com");
+    var emailNode = document.createElement("p");
+    var txt = document.createTextNode("zxie19@gmail.com");
+    emailNode.appendChild(txt);
+    emailNode.select();
+    document.execCommand("copy");
+    //navigator.clipboard.writeText("zxie19@gmail.com");
     showSnackbar();
 }
 </script>
@@ -42,7 +47,7 @@ function copyEmail() {
   <ul>
     <li>Demos</li>
       <ul>
-        <li><a href="demos/color/demo.html">A Demo of Colors</a></li>
+        <li><a href="demos/color/quiz.html">A Demo of Colors</a></li>
         <li><a href="demos/sudoku/sudoku.html">Sudoku</a></li>
       </ul>
     <li>Personal Links</li>

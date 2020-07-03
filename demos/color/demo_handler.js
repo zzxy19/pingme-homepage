@@ -6,6 +6,10 @@ const colorMatrixLookup = {'Normal':[1,0,0,
 'Protanopia':   [0.567,0.433,0.000,
                  0.558,0.442,0.000,
                  0.000,0.242,0.758],
+
+'Custom':       [0.700,0.300,0.000,
+                 0.400,0.600,0.000,
+                 0.000,0.125,0.875],
 // Red-Weak
 'Protanomaly':  [0.817,0.183,0.000,
                  0.333,0.667,0.000,
@@ -37,7 +41,7 @@ const colorMatrixLookup = {'Normal':[1,0,0,
 
 var CANVAS_HEIGHT = 200;
 var CANVAS_WIDTH = 300;
-var colorBlindType = 'Deuteranomaly';
+var colorBlindType = 'Protanopia';
 
 function displayImage(input) {
 	if (input.files && input.files[0]) {
